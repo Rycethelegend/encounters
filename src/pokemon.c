@@ -3164,7 +3164,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         if (attackerHoldEffect == sHoldEffectToType[i][0]
             && type == sHoldEffectToType[i][1])
         {
-            if (gBattleMoves[moves].flags & FLAG_IS_PHYSICAL) // PhySpe Split
+            if (gBattleMoves[move].flags & FLAG_IS_PHYSICAL) // PhySpe Split
                 attack = (attack * (attackerHoldEffectParam + 100)) / 100;
             else
                 spAttack = (spAttack * (attackerHoldEffectParam + 100)) / 100;
@@ -3275,7 +3275,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     if (type == TYPE_MYSTERY)
         damage = 0; // is ??? type. does 0 damage.
 
-    if (!(gBattleMoves[moves].flags & FLAG_IS_PHYSICAL)) //PhySpe split
+    if (!(gBattleMoves[move].flags & FLAG_IS_PHYSICAL)) //PhySpe split
     {
         if (gCritMultiplier == 2)
         {
