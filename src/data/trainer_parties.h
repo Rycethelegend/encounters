@@ -4214,8 +4214,8 @@ static const struct TrainerMonNoItemCustomMoves sParty_Calvin1[] = {
     {
     .iv = 0,
     .lvl = 30,
-    .species = SPECIES_LINOONE,
-    .moves = {MOVE_ACID_ARMOR}
+    .species = SPECIES_LUDICOLO,
+    .moves = {MOVE_RAIN_DANCE, MOVE_TOXIC}
     }
 };
 
