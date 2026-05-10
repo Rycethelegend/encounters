@@ -1523,7 +1523,7 @@ u8 DoBattlerEndTurnEffects(void)
                 gBattleStruct->turnEffectsTracker++;
                 break;
             case ENDTURN_POISON:  // poison
-                if ((gBattleMons[gActiveBattler].status1 & STATUS1_POISON) && gBattleMons[gActiveBattler].hp != 0)
+                if ((gBattleMons[gActiveBattler].status1 & STATUS1_POISON) && (gBattleMons[gActiveBattler].hp != 0) && (gBattleMons[gActiveBattler].ability != ABILITY_POISON_HEAL))
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                     if (gBattleMoveDamage == 0)
@@ -1534,7 +1534,7 @@ u8 DoBattlerEndTurnEffects(void)
                 gBattleStruct->turnEffectsTracker++;
                 break;
             case ENDTURN_BAD_POISON:  // toxic poison
-                if ((gBattleMons[gActiveBattler].status1 & STATUS1_TOXIC_POISON) && gBattleMons[gActiveBattler].hp != 0)
+                if ((gBattleMons[gActiveBattler].status1 & STATUS1_TOXIC_POISON) && (gBattleMons[gActiveBattler].hp != 0) && (gBattleMons[gActiveBattler].ability != ABILITY_POISON_HEAL))
                 {
                     gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
                     if (gBattleMoveDamage == 0)
@@ -2652,6 +2652,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     break;
                 case ABILITY_TRUANT:
                     gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
+                    break;
+                case ABILITY_POISON_HEAL: // Basically the same as rain dish
+                    if ((gBattleMons[battler].status1 & STATUS1_PSN_ANY) && (gBattleMons[battler].maxHP > gBattleMons[battler].hp)) {
+                        BattleScriptPushCursorAndCallback(BattleScript_PoisonHealActivates);
+                        gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+                        if (gBattleMoveDamage == 0)
+                            gBattleMoveDamage = 1;
+                        gBattleMoveDamage *= -1;
+                        effect++; // What's effect?
+                    }
                     break;
                 }
             }
