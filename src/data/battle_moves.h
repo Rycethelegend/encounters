@@ -484,7 +484,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_THRASH] =
     {
         .effect = EFFECT_RAMPAGE,
-        .power = 90,
+        .power = 120,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 20,
@@ -1043,7 +1043,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_PETAL_DANCE] =
     {
         .effect = EFFECT_RAMPAGE,
-        .power = 70,
+        .power = 120,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 20,
