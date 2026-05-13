@@ -198,8 +198,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_CUT] =
     {
         .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
+        .power = 65,
+        .type = TYPE_BUG,
         .accuracy = 95,
         .pp = 30,
         .secondaryEffectChance = 0,
@@ -2603,7 +2603,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_OUTRAGE] =
     {
         .effect = EFFECT_RAMPAGE,
-        .power = 90,
+        .power = 120,
         .type = TYPE_DRAGON,
         .accuracy = 100,
         .pp = 15,
